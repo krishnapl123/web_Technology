@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <table>
+        <th>FirstName</th>
+        <th>LastName</th>
+        <th>Address</th>
+        <tr id="dat">
+    </table>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $.getJSON("data.json", function(data) {
+                var student = '';
+                $.each(data, function(key, value) {
+                    student += '<tr>';
+                    student += '<td>' + value.fname + '</td>';
+                    student += '<td>' + value.lname + '</td>';
+                    student += '<td>' + value.address + '</td>';
+                    student += '</tr>';
+                })
+
+                $('#dat').append(student);
+
+            })
+
+        })
+    </script>
+</body>
+
+</html>
